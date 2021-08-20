@@ -12,19 +12,40 @@ namespace rock_papper_sissors
 
             void Rock()
             {
-             Console.WriteLine("Rock");
+                Console.WriteLine(@"
+                    _______
+                ---'   ____)
+                    (_____)
+                    (_____)
+                    (____)
+                ---.__(___)
+                ");
             }
             void Papper()
             {
-             Console.WriteLine("Papper");
+                Console.WriteLine(@"
+                    _______
+                ---'    ____)____
+                        ______)
+                        _______)
+                        _______)
+                ---.__________)
+                ");
             }
             void Scissors()
             {
-             Console.WriteLine("Scissors");
+                Console.WriteLine(@"
+                  _______
+                ---'   ____)____
+                        ______)
+                    __________)
+                    (____)
+                ---.__(___)
+                ");
             }
 
             // Function Calls
-            Scoreboard(); 
+            Scoreboard();
             Rock();
             Papper();
             Scissors();
@@ -35,14 +56,14 @@ namespace rock_papper_sissors
 
             void Scoreboard()
             {
-            Console.WriteLine("-------------------------------");
-            Console.WriteLine("|  Player: 0    |   Computer: 0");
-            Console.WriteLine("-------------------------------");
-            Console.WriteLine("What would you like to throw?");
-            Console.WriteLine("1) Rock");
-            Console.WriteLine("2) Papper");
-            Console.WriteLine("3) Scissors");
-            Console.WriteLine("-------------------------------");
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine("|  Player: 0    |   Computer: 0");
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine("What would you like to throw?");
+                Console.WriteLine("1) Rock");
+                Console.WriteLine("2) Papper");
+                Console.WriteLine("3) Scissors");
+                Console.WriteLine("-------------------------------");
             };
 
             // Accept User input
