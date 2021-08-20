@@ -53,8 +53,13 @@ namespace rock_papper_sissors
             }
 
             // Function Calls
+
+            while(HumanScore < 3 && ComputerScore < 3)
+            {
                 Display();
-          
+            }
+            
+                EndGame();
          
 
             // Randomly select a choice for the computer
@@ -79,19 +84,47 @@ namespace rock_papper_sissors
                 Console.WriteLine("-------------------------------");
                 userChoice = Console.ReadLine();
                 GenerateComputerChoice();
-                Scoreboard(HumanScore, ComputerScore);
+                GameResults(HumanScore, ComputerScore);
                 }
 
 
 
-                void Scoreboard(int HumanScore, int ComputerScore)
+                void GameResults(int HumanScore, int ComputerScore)
                 {
           
                     DisplayHumanChoice(userChoice);
                     Console.WriteLine("vs");
                     DisplayComputerChoice(ComputerChoice);
+                    if((userChoice == "1" && ComputerChoice == "3"))
+                    {
+                        HumanScore += HumanScore + 1;
+                        Console.Write("Human wins this round");
+                    }
+                    else if(userChoice == ComputerChoice)
+                    {
+                        Console.Write("This round was a tie");
+                    }
+                    else
+                    {
+                        ComputerScore = ComputerScore + 1;
+                        Console.Write("Computer wins this round");
+                    }
+                    
                
                 };  
+
+                void EndGame()
+                {
+                    if( HumanScore < ComputerScore)
+                    {
+                        Console.WriteLine("AI Takeover!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Somehow the human escaped alive...");
+                    }
+                }
+
                 void DisplayHumanChoice(string userChoice)
                 {
                     if(userChoice == "1")
