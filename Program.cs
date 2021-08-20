@@ -15,40 +15,40 @@ namespace rock_papper_sissors
                 Console.WriteLine(@"
                     _______
                 ---'   ____)
-                    (_____)
-                    (_____)
-                    (____)
+                     (_____)
+                     (_____)
+                      (____)
                 ---.__(___)
                 ");
             }
             void Papper()
             {
                 Console.WriteLine(@"
-                    _______
-                ---'    ____)____
-                        ______)
-                        _______)
-                        _______)
+                    _________
+                ---'      ____)____
+                              ______)
+                             _______)
+                           _______)
                 ---.__________)
                 ");
             }
             void Scissors()
             {
                 Console.WriteLine(@"
-                  _______
-                ---'   ____)____
-                        ______)
-                    __________)
-                    (____)
+                    _______
+                ---'    ____)____
+                            ______)
+                        __________)
+                      (____)
                 ---.__(___)
                 ");
             }
 
             // Function Calls
             Scoreboard();
-            Rock();
-            Papper();
-            Scissors();
+            // Rock();
+            // Papper();
+            // Scissors();
 
 
 
@@ -64,9 +64,28 @@ namespace rock_papper_sissors
                 Console.WriteLine("2) Papper");
                 Console.WriteLine("3) Scissors");
                 Console.WriteLine("-------------------------------");
+            // Accept User input
+                string userChoice = Console.ReadLine();
+                Game(userChoice);
+                
             };
 
-            // Accept User input
+
+                void Game(string userChoice)
+                {
+                    if(userChoice == "1")
+                    {
+                        Rock();
+                    }
+                    else if (userChoice == "2")
+                    {
+                        Papper();
+                    }
+                    else
+                    {
+                        Scissors();
+                    }
+                }
 
 
 
