@@ -5,7 +5,6 @@ namespace rock_papper_sissors
     class Program
     {
         static void Main(string[] args)
-
         {
 
             // Vars
@@ -54,9 +53,18 @@ namespace rock_papper_sissors
             }
 
             // Function Calls
-            Scoreboard(HumanScore, ComputerScore);
+                Display();
+          
          
 
+            // Randomly select a choice for the computer
+                void GenerateComputerChoice()
+                {
+                    Random r =new Random();
+                    int genRan = r.Next(0,3);
+                    ComputerChoice = computer[genRan];
+                    
+                }
 
             // Display Header for the Game
                 void Display()
@@ -70,55 +78,20 @@ namespace rock_papper_sissors
                 Console.WriteLine("3) Scissors");
                 Console.WriteLine("-------------------------------");
                 userChoice = Console.ReadLine();
-                }
-
-            void Scoreboard(int HumanScore, int ComputerScore)
-
-            {
-            while( HumanScore > 3 && ComputerScore > 3)
-            {
-                Display();
-            // Accept User input
                 GenerateComputerChoice();
-                DisplayHumanChoice(userChoice);
-                Console.WriteLine("vs");
-                DisplayComputerChoice(ComputerChoice);
-                if ( userChoice == ComputerChoice)
-                {
-                    Console.WriteLine("This round was a tie!");
-                }
-                 else if ((userChoice == "1" && ComputerChoice == "3") || (userChoice == "2" && ComputerChoice == "1") || (userChoice =="3" && ComputerChoice == "2"))
-                {
-                    HumanScore =+ HumanScore;
-                }
-                else
-                {
-                    ComputerScore =+ ComputerScore;
-                }
-            };
-            
-            if( HumanScore > ComputerScore){
-                Console.WriteLine("Coputer Wins!");
-                Console.WriteLine($"Computer Wins {ComputerScore} - {HumanScore}");
-                ComputerScore = 0;
-                HumanScore = 0;
-            }
-            else 
-            {
-                Console.WriteLine("Human Wins");
-                HumanScore += HumanScore;
-                Console.WriteLine($"Human somehow wins... {HumanScore} - {ComputerScore}");
-            };
-
-                void GenerateComputerChoice()
-                {
-                    Random r =new Random();
-                    int genRan = r.Next(0,3);
-                    ComputerChoice = computer[genRan];
-                    
+                Scoreboard(HumanScore, ComputerScore);
                 }
 
 
+
+                void Scoreboard(int HumanScore, int ComputerScore)
+                {
+          
+                    DisplayHumanChoice(userChoice);
+                    Console.WriteLine("vs");
+                    DisplayComputerChoice(ComputerChoice);
+               
+                };  
                 void DisplayHumanChoice(string userChoice)
                 {
                     if(userChoice == "1")
@@ -151,10 +124,8 @@ namespace rock_papper_sissors
                     }
 
                 }
-            }
-
-
-
+            
         }
-    }
+    }      
 }
+
