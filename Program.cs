@@ -24,6 +24,7 @@ namespace rock_papper_sissors
                      (_____)
                       (____)
                 ---.__(___)
+                ROCK
                 ");
             }
             void Papper()
@@ -35,6 +36,7 @@ namespace rock_papper_sissors
                              _______)
                            _______)
                 ---.__________)
+                PAPPER
                 ");
             }
             void Scissors()
@@ -46,6 +48,7 @@ namespace rock_papper_sissors
                         __________)
                       (____)
                 ---.__(___)
+                SCISSORS
                 ");
             }
 
@@ -68,6 +71,7 @@ namespace rock_papper_sissors
                 Console.WriteLine("-------------------------------");
             // Accept User input
                 string userChoice = Console.ReadLine();
+                GenerateComputerChoice();
                 DisplayHumanChoice(userChoice);
                 Console.WriteLine("vs");
                 DisplayComputerChoice(ComputerChoice);
@@ -77,8 +81,9 @@ namespace rock_papper_sissors
                 void GenerateComputerChoice()
                 {
                     Random r =new Random();
-                    int genRan = r.Next(1,3);
+                    int genRan = r.Next(0,3);
                     ComputerChoice = computer[genRan];
+                    
                 }
 
 
