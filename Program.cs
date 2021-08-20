@@ -54,7 +54,7 @@ namespace rock_papper_sissors
 
             // Function Calls
 
-            while(HumanScore < 3 && ComputerScore < 3)
+            while((HumanScore < 3) && (ComputerScore < 3))
             {
                 Display();
             }
@@ -74,16 +74,18 @@ namespace rock_papper_sissors
             // Display Header for the Game
                 void Display()
                 {
+                Console.WriteLine("");
                 Console.WriteLine("-------------------------------");
-                Console.WriteLine($"|  Player: {HumanScore}    |   Computer: {ComputerScore}");
+                Console.WriteLine($"|  Human: {HumanScore}    |   Computer: {ComputerScore}");
                 Console.WriteLine("-------------------------------");
                 Console.WriteLine("What would you like to throw?");
                 Console.WriteLine("1) Rock");
                 Console.WriteLine("2) Papper");
                 Console.WriteLine("3) Scissors");
-                Console.WriteLine("-------------------------------");
+                // Console.WriteLine("-------------------------------");
                 userChoice = Console.ReadLine();
                 GenerateComputerChoice();
+               
                 GameResults(HumanScore, ComputerScore);
                 }
 
@@ -95,19 +97,19 @@ namespace rock_papper_sissors
                     DisplayHumanChoice(userChoice);
                     Console.WriteLine("vs");
                     DisplayComputerChoice(ComputerChoice);
-                    if((userChoice == "1" && ComputerChoice == "3"))
+                    if((userChoice == "1" && ComputerChoice == "3")|| (userChoice == "2" && ComputerChoice == "1") || (userChoice == "3" && ComputerChoice =="2"))
                     {
                         HumanScore += HumanScore + 1;
-                        Console.Write("Human wins this round");
+                        Console.Write("Human wins this round.");
                     }
                     else if(userChoice == ComputerChoice)
                     {
-                        Console.Write("This round was a tie");
+                        Console.Write("This round was a tie.");
                     }
                     else
                     {
                         ComputerScore = ComputerScore + 1;
-                        Console.Write("Computer wins this round");
+                        Console.Write("Computer wins this round.");
                     }
                     
                
@@ -115,7 +117,7 @@ namespace rock_papper_sissors
 
                 void EndGame()
                 {
-                    if( HumanScore < ComputerScore)
+                    if( HumanScore < ComputerScore )
                     {
                         Console.WriteLine("AI Takeover!");
                     }
