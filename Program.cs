@@ -11,8 +11,12 @@ namespace rock_papper_sissors
 
             int HumanScore = 0;
             int ComputerScore = 0;
+
+
+
+
             string ComputerChoice = "";
-            string[] computer = {"1" , "2" , "3"};
+            string[] computer = { "1", "2", "3" };
             string userChoice = "";
 
             void Rock()
@@ -54,26 +58,26 @@ namespace rock_papper_sissors
 
             // Function Calls
 
-            while((HumanScore < 3) && (ComputerScore < 3))
+            while ((HumanScore < 3) && (ComputerScore < 3))
             {
                 Display();
             }
-            
-                EndGame();
-         
+
+            EndGame();
+
 
             // Randomly select a choice for the computer
-                void GenerateComputerChoice()
-                {
-                    Random r =new Random();
-                    int genRan = r.Next(0,3);
-                    ComputerChoice = computer[genRan];
-                    
-                }
+            void GenerateComputerChoice()
+            {
+                Random r = new Random();
+                int genRan = r.Next(0, 3);
+                ComputerChoice = computer[genRan];
+
+            }
 
             // Display Header for the Game
-                void Display()
-                {
+            void Display()
+            {
                 Console.WriteLine("");
                 Console.WriteLine("-------------------------------");
                 Console.WriteLine($"|  Human: {HumanScore}    |   Computer: {ComputerScore}");
@@ -85,82 +89,82 @@ namespace rock_papper_sissors
                 // Console.WriteLine("-------------------------------");
                 userChoice = Console.ReadLine();
                 GenerateComputerChoice();
-               
+
                 GameResults(HumanScore, ComputerScore);
+            }
+
+
+
+            void GameResults(int humanScore, int computerScore)
+            {
+
+                DisplayHumanChoice(userChoice);
+                Console.WriteLine("vs");
+                DisplayComputerChoice(ComputerChoice);
+                if ((userChoice == "1" && ComputerChoice == "3") || (userChoice == "2" && ComputerChoice == "1") || (userChoice == "3" && ComputerChoice == "2"))
+                {
+                    HumanScore = humanScore + 1;
+                    Console.Write("Human wins this round.");
+                }
+                else if (userChoice == ComputerChoice)
+                {
+                    Console.Write("This round was a tie.");
+                }
+                else
+                {
+                    ComputerScore = computerScore + 1;
+                    Console.Write("Computer wins this round.");
                 }
 
 
+            };
 
-                void GameResults(int HumanScore, int ComputerScore)
+            void EndGame()
+            {
+                if (HumanScore < ComputerScore)
                 {
-          
-                    DisplayHumanChoice(userChoice);
-                    Console.WriteLine("vs");
-                    DisplayComputerChoice(ComputerChoice);
-                    if((userChoice == "1" && ComputerChoice == "3")|| (userChoice == "2" && ComputerChoice == "1") || (userChoice == "3" && ComputerChoice =="2"))
-                    {
-                        HumanScore += HumanScore + 1;
-                        Console.Write("Human wins this round.");
-                    }
-                    else if(userChoice == ComputerChoice)
-                    {
-                        Console.Write("This round was a tie.");
-                    }
-                    else
-                    {
-                        ComputerScore = ComputerScore + 1;
-                        Console.Write("Computer wins this round.");
-                    }
-                    
-               
-                };  
+                    Console.WriteLine("AI Takeover!");
+                }
+                else
+                {
+                    Console.WriteLine("Somehow the human escaped alive...");
+                }
+            }
 
-                void EndGame()
+            void DisplayHumanChoice(string userChoice)
+            {
+                if (userChoice == "1")
                 {
-                    if( HumanScore < ComputerScore )
-                    {
-                        Console.WriteLine("AI Takeover!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Somehow the human escaped alive...");
-                    }
+                    Rock();
+                }
+                else if (userChoice == "2")
+                {
+                    Papper();
+                }
+                else
+                {
+                    Scissors();
                 }
 
-                void DisplayHumanChoice(string userChoice)
+            }
+            void DisplayComputerChoice(string ComputerChoice)
+            {
+                if (ComputerChoice == "1")
                 {
-                    if(userChoice == "1")
-                    {
-                        Rock();
-                    }
-                    else if (userChoice == "2")
-                    {
-                        Papper();
-                    }
-                    else
-                    {
-                        Scissors();
-                    }
-
+                    Rock();
                 }
-                void DisplayComputerChoice(string ComputerChoice)
+                else if (ComputerChoice == "2")
                 {
-                    if(ComputerChoice == "1")
-                    {
-                        Rock();
-                    }
-                    else if (ComputerChoice == "2")
-                    {
-                        Papper();
-                    }
-                    else
-                    {
-                        Scissors();
-                    }
-
+                    Papper();
                 }
-            
+                else
+                {
+                    Scissors();
+                }
+
+            }
+
         }
-    }      
+    }
 }
 
